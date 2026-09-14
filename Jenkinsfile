@@ -3,13 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/gsuvathi/Devops.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 bat 'npm install'
