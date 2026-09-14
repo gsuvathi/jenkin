@@ -3,24 +3,10 @@ pipeline {
 
     stages {
 
-        stage('Verify Project') {
+        stage('Checkout') {
             steps {
-                bat '''
-                    echo Checking project files...
-                    dir
-
-                    if not exist package.json (
-                        echo ERROR: package.json not found!
-                        exit /b 1
-                    )
-
-                    if not exist server.js (
-                        echo ERROR: server.js not found!
-                        exit /b 1
-                    )
-
-                    echo Project files verified successfully.
-                '''
+                git branch: 'main',
+                    url: 'https://github.com/gsuvathi/Devops.git'
             }
         }
 
